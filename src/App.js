@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+
+const Box = ({week}) => {
+  return(
+    <div className="Box">{week + 1}</div>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {[...Array(78)].fill().map((n, year) => (
+          [...Array(52)].fill().map((n, week) => (
+            <Box key={week} week={week}/>
+          )
+        )
+      ))}
     </div>
   );
 }
